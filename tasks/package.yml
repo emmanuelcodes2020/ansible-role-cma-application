@@ -1,0 +1,15 @@
+---
+- name: Install java jdk 11
+  yum: 
+      name: java-11-amazon-corretto-headless
+      state:  latest
+  become: true
+
+
+- name: Ensure wget is present
+  yum:
+      name: "{{ item }}"
+      state: present
+  with_items:
+    - wget
+   

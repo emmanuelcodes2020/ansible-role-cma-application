@@ -1,0 +1,8 @@
+---
+- name: Create cma user
+  user:
+    name: cma
+
+- name: Create tester user
+  user:
+    name: cma-test

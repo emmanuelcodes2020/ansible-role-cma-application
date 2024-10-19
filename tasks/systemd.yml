@@ -1,0 +1,11 @@
+---
+- name: Create systemd service file from template
+  template:
+    src: "{{ java_jinja_relative_path }}"
+    dest: "{{ java_jinja_template_dest }}"
+    mode: '0644'
+
+    
+- name: Reload systemd to apply the new service
+  systemd:
+    daemon_reload: yes

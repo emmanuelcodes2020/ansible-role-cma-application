@@ -1,0 +1,25 @@
+---
+- name: Create deployment directory
+  file:
+    path: "{{ deploy_dir }}"
+    state: directory
+    mode: '0755'
+    owner: cma
+    group: cma
+    
+
+- name: Download JAR file from Nexus repository to deployment directory
+  get_url:
+    url: "{{ nexus_url }}"
+    dest: "{{ deploy_dir }}"
+    mode: '0755'
+  
+
+- name: Set ownership for the downloaded JAR file
+  file:
+    path: "{{ deploy_dir }}"
+    owner: cma
+    group: cma
+    mode: '0755'
+
+

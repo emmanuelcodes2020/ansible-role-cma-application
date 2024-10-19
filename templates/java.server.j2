@@ -1,0 +1,12 @@
+[Unit]
+Description=Java Application Service
+After=network.target
+
+[Service]
+User=cma
+ExecStart=/usr/bin/java -jar  /opt/app/customer-management-{{ app_version }}.jar
+Restart=always
+Environment=SPRING_PROFILES_ACTIVE=prod
+
+[Install]
+WantedBy=multi-user.target

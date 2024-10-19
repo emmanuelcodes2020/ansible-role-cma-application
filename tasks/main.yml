@@ -1,0 +1,28 @@
+---
+# tasks file for ansible-role-cma-application
+- include_tasks: package.yml
+  tags: 
+    - cma
+    - cma_package
+
+
+- include_tasks: user.yml
+  tags: 
+    - cma
+    - cma_user
+
+- include_tasks: prepare.yml
+  tags: 
+    - cma
+    - cma_prepare
+
+- include_tasks: systemd.yml
+  tags: 
+    - cma
+    - cma_systemd
+
+
+- include_tasks: service.yml
+  tags: 
+    - cma
+    - cma_service
